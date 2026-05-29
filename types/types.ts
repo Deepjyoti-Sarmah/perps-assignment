@@ -4,7 +4,7 @@ export type Users = {
   userId: string,
   balance: Balances
   positions: Positions[]
-  orders: Oders[]
+  orders: Order[]
 }
 
 export type Balances = {
@@ -22,18 +22,24 @@ export type Positions = {
   liquidationPrice: number
 }
 
-export type Oders = {
-  symbol: "BTC-PERPS",
+export type Order = {
+  orderId: string
+  userId: string
+  symbol: string
   side: "long" | "short"
   type: "limit" | "market"
   price: number
   quantity: number
+  filledQuantity: number
   leverage: number
   postOnly: boolean
-  clientOderId: string
+  clientOrderId?: string
+  status: "resting" | "filled" | "partially_filled" | "cancelled" | "rejected"
+  fills: Fill[]
+  createdAt: number
 }
 
-export type Fills = {
+export type Fill = {
   price: number,
   quantity: number
   makerOrderId: string
@@ -48,8 +54,7 @@ export type RestingOrder = {
   quantity: number
 }
 
-export type orderBook = {
+export type OrderBook = {
   bids: Record<string, RestingOrder>
-  ask: Record<string, RestingOrder>
-
+  asks: Record<string, RestingOrder>
 }

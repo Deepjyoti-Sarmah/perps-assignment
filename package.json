@@ -2,6 +2,10 @@
   "name": "perps-backend-assign",
   "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "dev": "bun run server/index.ts"
+
+  },
   "private": true,
   "devDependencies": {
     "@types/bun": "latest"
@@ -12,6 +16,7 @@
   "dependencies": {
     "@types/express": "^5.0.6",
     "express": "^5.2.1",
-    "redis": "^6.0.0"
+    "redis": "^6.0.0",
+    "vitest": "^4.1.7"
   }
 }
