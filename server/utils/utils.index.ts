@@ -53,10 +53,12 @@ export function updatePosition(
       unrealizedPnl: 0,
       liquidationPrice: liqPrice
     });
+
   } else {
+
     const totalQty = pos.quantity + fillQty;
-    const newAvg =
-      (pos.averageEntryPrice * pos.quantity + fillPrice * fillQty) / totalQty;
+    const newAvg = (pos.averageEntryPrice * pos.quantity + fillPrice * fillQty) / totalQty;
+
     const newMargin = pos.margin + fillMargin;
     const effLeverage = (newAvg * totalQty) / newMargin;
 
